@@ -23,4 +23,4 @@ mod "puppetlabs/nodejs",
   :git => 'https://github.com/hairmare/puppetlabs-nodejs.git',
   :ref => 'feature/gentoo'
 
-mod "example24/mongodb"
+mod "example42/mongodb"
