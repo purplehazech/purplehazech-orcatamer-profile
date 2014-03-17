@@ -123,7 +123,7 @@ class profile::puppet::master {
     listen_ip          => '0.0.0.0',
     default_server     => true,
     www_root           => '/var/www/puppet.vagrant.local',
-    template_directory => '/vagrant/manifests/profile/templates/puppet/nginx_location.conf.erb',
+    template_directory => '/vagrant/modules/profile/templates/puppet/nginx_location.conf.erb',
   } ->
   group { 'puppetboard':
     ensure => present,
