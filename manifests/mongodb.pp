@@ -3,7 +3,7 @@
 #
 class profile::mongodb {
   class { 'mongodb':
-    server_package_name => 'mongodb',
-    client_package_name => false,
+    package        => 'mongodb',
+    package_client => false,
   }
 }
