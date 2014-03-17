@@ -23,4 +23,8 @@ mod "puppetlabs/nodejs",
   :git => 'https://github.com/hairmare/puppetlabs-nodejs.git',
   :ref => 'feature/gentoo'
 
+# mongodb for various servers and clients
 mod "example42/mongodb"
+
+# openssl for managing certs for various apps
+mod "camptocamp/openssl"

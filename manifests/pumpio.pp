@@ -24,6 +24,12 @@ class profile::pumpio {
     ]:
       ensure => directory
   } ->
+  openssl::certificate::x509 { 'server':
+    country      => 'CH',
+    organization => 'purplehaze.ch',
+    commonname   => $::fqdn,
+    base_dir     => '/etc/pump.io/ssl'
+  } ->
   file { '/etc/pump.io.json':
     content => template('profile/pumpio/pump.io.json.erb')
   }
