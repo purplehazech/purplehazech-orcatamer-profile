@@ -1,0 +1,7 @@
+  location <%= @location %>static {
+    alias /usr/lib64/python2.7/site-packages/puppetboard/static;
+  }
+  location <%= @location %> {
+    proxy_pass http://puppetboard;
+    include /etc/nginx/uwsgi_params;
+  }
