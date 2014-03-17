@@ -17,3 +17,9 @@
 forge "http://forge.puppetlabs.com"
 
 modulefile
+
+# nodejs for boxes like the pump.io box
+mod "willdurand/nodejs",
+  :git => "https://github.com/willdurand/puppet-nodejs.git",
+  :ref => "master"
+

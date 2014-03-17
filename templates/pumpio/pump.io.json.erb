@@ -1,0 +1,19 @@
+{
+    "driver":  "mongodb",
+    "params":  {"dir": "/srv/www/<%= scope.lookupvar('::hostname') %>"},
+    "secret":  "my dog has fleas",
+    "noweb":  false,
+    "site":  "Awesome Sauce",
+    "owner":  "Awesome Inc.",
+    "ownerURL":  "https://<%= scope.lookupvar('::fqdn') %>/",
+    "port":  443,
+    "hostname":  "<%= scope.lookupvar('::hostname') %>",
+    "address":  "<%= scope.lookupvar('::fqdn') %>",
+    "nologger":  false,
+    "serverUser":  "pumpio",
+    "key":  "/etc/pump.io/ssl/keyfile.key",
+    "cert":  "/etc/pump.io/ssl/server.crt",
+    "uploaddir": "/srv/www/<%= scope.lookupvar('::hostname') %>/uploads",
+    "debugClient": false,
+    "firehose": "ofirehose.example"
+}
