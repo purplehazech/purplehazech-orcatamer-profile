@@ -19,7 +19,7 @@ forge "http://forge.puppetlabs.com"
 modulefile
 
 # nodejs for boxes like the pump.io box
-mod "willdurand/nodejs",
-  :git => "https://github.com/willdurand/puppet-nodejs.git",
-  :ref => "master"
+mod "puppetlabs/nodejs",
+  :git => 'https://github.com/hairmare/puppetlabs-nodejs.git',
+  :ref => 'feature/gentoo'
 
