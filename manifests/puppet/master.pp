@@ -77,10 +77,8 @@ class profile::puppet::master {
   package { 'dev-python/pip':
     ensure  => present,
     require => Service['puppetdb']
-  } ->
-  package { 'www-servers/nginx':
-    ensure => present,
-  } ->
+  }
+
   portage::package { 'www-servers/uwsgi':
     ensure   => present,
     use      => [
@@ -93,25 +91,13 @@ class profile::puppet::master {
   exec { 'pip-install-puppetboard':
     command => '/usr/bin/python2.7 /usr/lib64/python2.7/site-packages/pip/__init__.py install puppetboard',
     creates => $puppetboard_dir,
-  } ->
-  file { '/etc/nginx/conf.d':
-    ensure => directory
-  } ->
-  class { 'nginx': } ->
-  exec { 'nginx-add-conf.d':
-    command => '/bin/sed --in-place -e "s@include /etc/nginx/mime.types;@include /etc/nginx/mime.types;\n\tinclude /etc/nginx/conf.d/*.conf;@" /etc/nginx/nginx.conf',
-    unless  => '/bin/grep "include /etc/nginx/conf.d/\*.conf;" /etc/nginx/nginx.conf',
-  } ~>
-  exec { 'restart-nginx-after-conf':
-    command     => '/etc/init.d/nginx restart',
-    refreshonly => true
   }
 
   nginx::resource::upstream { 'puppetboard':
     ensure  => present,
     members => [
       '127.0.0.1:9090',
-    ]
+    ],
   } ->
   file { '/var/www/puppet.vagrant.local':
     ensure => directory,
@@ -164,7 +150,6 @@ class profile::puppet::master {
     ensure  => running,
     enable  => true,
     require => [
-      Class['nginx'],
       Service['puppetmaster']
     ]
   }
